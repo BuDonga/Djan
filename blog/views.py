@@ -3,6 +3,7 @@ from django.shortcuts import render
 import datetime
 
 from django.template import Template, Context
+from django.template.loader import get_template
 
 
 def hello(request):
@@ -21,7 +22,7 @@ def current_time(request, ahead):
     now = datetime.datetime.now()
     #return HttpResponse('<html><body>now the time is %s!</body></html>' % now)
     a = {'now': now, 'ahead': ahead}
-    html = Template('<html><body>now the time is {{a.now}}! and it\'s ahead {{a.ahead}} hours</body></html>')
+    html = get_template('current_datetime.html')
     c = Context({'a': a})
     a = html.render(c)
     return HttpResponse(a)
