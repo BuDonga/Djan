@@ -16,4 +16,3 @@ def current_time(request):
     return HttpResponse('<html><body>now the time is %s!</body></html>' % now)
 
 
-12312313212
