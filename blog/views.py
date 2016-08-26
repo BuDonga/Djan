@@ -31,7 +31,7 @@ def current_time(request, ahead):
 
 def includes(request):
     a = {'title': 'this is a title !!!!!!!', 'current_section': 'current section is including'}
-    return render_to_response('mypage.html', {'a': a})
+    return render_to_response('mypage.html', locals())
 
 
 
