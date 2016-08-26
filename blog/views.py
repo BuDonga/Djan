@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 import datetime
 
 from django.template import Template, Context
@@ -22,10 +22,17 @@ def current_time(request, ahead):
     now = datetime.datetime.now()
     #return HttpResponse('<html><body>now the time is %s!</body></html>' % now)
     a = {'now': now, 'ahead': ahead}
-    html = get_template('current_datetime.html')
-    c = Context({'a': a})
-    a = html.render(c)
-    return HttpResponse(a)
+    # html = get_template('current_datetime.html')
+    # c = Context({'a': a})
+    # a = html.render(c)
+    # return HttpResponse(a)
+    return render_to_response('current_datetime.html', {'a': a})
+
+
+def includes(request):
+    a = {'title': 'this is a title !!!!!!!', 'current_section': 'current section is including'}
+    return render_to_response('mypage.html', {'a': a})
+
 
 
 

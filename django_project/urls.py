@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^hello/$', views.hello),
     url(r'^time/$', views.current_time),
     url(r'^time/plus/(\d{1,2})/$', views.current_time),
+    url(r'^time/plus/includes/$', views.includes),
 ]
  
