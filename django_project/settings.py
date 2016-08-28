@@ -80,7 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': r'E:\django_project\db\django.db',
+        #'NAME': r'E:\django_project\db\django.db',
+        'NAME': r'E:\Work\Django_project\db\django.db',
+
     }
 }
 
