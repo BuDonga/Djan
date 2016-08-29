@@ -1,0 +1,26 @@
+1.使用django book2.0 时候，输入python manage.py sqlall books 报错解决办法
+
+时间：2015-08-09 15:29:06      阅读：1216      评论：0      收藏：0      [点我收藏+]
+标签：class   com   使用   la   问题   sp   数据   ha   Go   
+
+会出现这样的错：CommandError: App ‘books‘ has migrations. Only the sqlmigrate and sqlflush commands can be used when an app has migrations.
+
+这是因为旧版本和新的版本命令已经不一样 的问题。
+
+我用的是django =1.8.3,
+
+写好自己的model以后可以换成这样的命令来生成数据库表：
+
+ python manage.py makemigrations books
+
+然后：python manage.py sqlmigrate books 0001
+
+这样就可以CREATE TABLE 了，这个创建仅仅是生成SQL语句，如果需要写入DB，则需要运行
+python manage.py migrate
+
+
+
+
+
+
+2.使用settings.configure()会使settings指向globel_settings,找了一下午为什么找不到DATABASES的原因。。就是因为之前执行了这句语句。。
